@@ -9,7 +9,7 @@ description = "A linter for iCalendar (.ics) files: floating times, missing VTIM
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "JaydenCJ" }]
+authors = [{ name = "JaydenCJ", email = "aisingioro.kiyon@gmail.com" }]
 keywords = ["icalendar", "ics", "linter", "calendar", "rfc5545", "rrule", "timezone", "interoperability"]
 classifiers = [
     "Development Status :: 3 - Alpha",
