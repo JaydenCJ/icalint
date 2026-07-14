@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13">
+  <!-- Terminal transcript of real runs of `icalint` against the shipped
+       examples. Text content is copied verbatim from an actual execution
+       (long findings wrapped for display); reproduce with:
+       PYTHONPATH=src python3 -m icalint examples/rrule-traps.ics -->
+  <rect width="960" height="560" rx="10" fill="#0d1117"/>
+  <rect width="960" height="34" rx="10" fill="#161b22"/>
+  <rect y="20" width="960" height="14" fill="#161b22"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="17" r="6" fill="#28c840"/>
+  <text x="480" y="22" fill="#8b949e" text-anchor="middle" font-size="12">icalint — catch the invite bug before you send it</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="64"><tspan fill="#7ee787">$</tspan> icalint examples/rrule-traps.ics</text>
+    <text x="24" y="92"><tspan fill="#8b949e">examples/rrule-traps.ics:7:</tspan> <tspan fill="#f85149">error[T002]</tspan> TZID 'America/New_York' has no VTIMEZONE definition in</text>
+    <text x="24" y="112">    this file; Google and Apple guess IANA names, but RFC 5545 requires the definition and Outlook</text>
+    <text x="24" y="132">    variants do not guess</text>
+    <text x="24" y="160"><tspan fill="#8b949e">examples/rrule-traps.ics:10:</tspan> <tspan fill="#f85149">error[R004]</tspan> RRULE has both UNTIL and COUNT; RFC 5545 allows at most</text>
+    <text x="24" y="180">    one, and clients disagree about which bound wins</text>
+    <text x="24" y="208"><tspan fill="#8b949e">examples/rrule-traps.ics:10:</tspan> <tspan fill="#f85149">error[R006]</tspan> UNTIL=20261231T093000 is a local time but DTSTART is</text>
+    <text x="24" y="228">    timezone-aware; RFC 5545 requires UTC here (append Z), otherwise the last occurrence shifts per client</text>
+    <text x="24" y="256"><tspan fill="#8b949e">examples/rrule-traps.ics:10:</tspan> <tspan fill="#d29922">warning[R010]</tspan> DTSTART falls on TU but BYDAY=MO; clients disagree on</text>
+    <text x="24" y="276">    whether the start date itself is an occurrence</text>
+    <text x="24" y="304">1 file checked: <tspan fill="#f85149">3 errors</tspan>, <tspan fill="#d29922">1 warning</tspan></text>
+    <text x="24" y="348"><tspan fill="#7ee787">$</tspan> icalint examples/outlook-export.ics --select T004</text>
+    <text x="24" y="376"><tspan fill="#8b949e">examples/outlook-export.ics:16:</tspan> <tspan fill="#d29922">warning[T004]</tspan> TZID 'China Standard Time' is a Windows/Exchange</text>
+    <text x="24" y="396">    display name; clients that resolve zones via the IANA database cannot map it (use TZID=Asia/Shanghai)</text>
+    <text x="24" y="424">1 file checked: <tspan fill="#d29922">1 warning</tspan></text>
+    <text x="24" y="468"><tspan fill="#7ee787">$</tspan> icalint examples/clean.ics &amp;&amp; echo ready to send</text>
+    <text x="24" y="496">1 file checked: <tspan fill="#7ee787">no problems found</tspan></text>
+    <text x="24" y="524" fill="#7ee787">ready to send</text>
+  </g>
+</svg>
